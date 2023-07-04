@@ -1,0 +1,45 @@
+@import "scss/reset";
+@import "../assets/fonts/webfonts/stylesheet.css";
+
+@import "scss/base";
+
+@mixin devices($breakpoint) {
+  //the name of the mixin is devices
+
+  @if $breakpoint == tablet {
+    @media only screen and (max-width: 780px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile {
+    @media only screen and (max-width: 481px) {
+      @content;
+    }
+  }
+}
+
+.home {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #14191b;
+
+  .logo {
+    max-width: 65%;
+    max-height: 65%;
+    @include devices(tablet) {
+      max-width: 100%;
+    }
+    @include devices(mobile) {
+      max-width: 100%;
+    }
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
